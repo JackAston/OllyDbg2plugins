@@ -1,0 +1,53 @@
+:remove this line. Import afer that into ollydbg debugged by itself via plugin import.
+Count=1
+module name	address	name	comment	type index	pointers count	array counts/labels	count types
+ollydbg	1B9C68	PluginsSortedData		1	0	0	1,0,0,0,0,
+Count=10
+name	fields count	structure size
+	name	comment	offset	type index	pointers count	array counts/labels	count types
+ulong	0	4
+t_sorted_plugin	17	68
+	n	Actual number of entries	0	2	0	0	1,0,0,0,0,
+	nmax	Maximal number of entries	4	2	0	0	1,0,0,0,0,
+	itemsize	Size of single entry	8	0	0	0	1,0,0,0,0,
+	mode	Storage mode, set of SDM_xxx	12	2	0	0	1,0,0,0,0,
+	data	Sorted data, NULL if SDM_INDEXED	16	7	1	8	1,0,0,0,0,
+	block	NBLOCK sorted data blocks, or NULL	20	3	1	0	1,1,0,0,0,
+	nblock	Number of allocated blocks	24	2	0	0	1,0,0,0,0,
+	version	Changes on each modification	28	0	0	0	1,0,0,0,0,
+	dataptr	Pointers to data, sorted by address	32	3	2	0	1,1,1,0,0,
+	selected	Index of selected entry	36	2	0	0	1,0,0,0,0,
+	seladdr	Base address of selected entry	40	0	0	0	1,0,0,0,0,
+	selsubaddr	Subaddress of selected entry	44	0	0	0	1,0,0,0,0,
+	sortfunc	Function which sorts data or NULL	48	4	0	0	1,0,0,0,0,
+	destfunc	Destructor function or NULL	52	4	0	0	1,0,0,0,0,
+	sort	Sorting criterium (column)	56	2	0	0	1,0,0,0,0,
+	issorted	Whether indexes are sorted	60	2	0	0	1,0,0,0,0,
+	sortindex	Indexes, sorted by criterium	64	2	0	0	1,0,0,0,0,
+int	0	4
+void	0	4
+int  __cdecl SORTFUNC(const t_sorthdr *,const t_sorthdr *,const int);	0	4
+__cdecl DESTFUNC(t_sorthdr *);	0	4
+wchar_t	0	2
+TPlugin	16	708
+	module_base_addr	 	0	0	0	0	1,0,0,0,0,
+	f_4	 	4	0	0	0	1,0,0,0,0,
+	name	 	12	9	0	0	64,0,0,0,0,
+	version	 	76	9	0	0	64,0,0,0,0,
+	path	 	140	9	0	0	512,0,0,0,0,
+	f_652	 	652	0	0	0	4,0,0,0,0,
+	_ODBG2_Pluginmenu	 	668	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginanalyse	 	672	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginmainloop	 	676	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginexception	 	680	8	0	0	1,0,0,0,0,
+	_ODBG2_Plugindump	 	684	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginsaveudd	 	688	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginuddrecord	 	692	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginreset	 	696	8	0	0	1,0,0,0,0,
+	_ODBG2_Pluginclose	 	700	8	0	0	1,0,0,0,0,
+	_ODBG2_Plugindestroy	 	704	8	0	0	1,0,0,0,0,
+TProc	0	4
+char	0	1
+Count=1
+cl module name	cl address	cl name	comment	type index	pointers count	array counts/labels	count types
+ollydbg	1B9C68	lbl_plugins_cnt		0	0	0	1,0,0,0,0,

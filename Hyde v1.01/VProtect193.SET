@@ -1,0 +1,19 @@
+[Style]
+Patch Style=2
+[Patches]
+PEB.IsDebugged=1
+PEB.NtGlobalFlag=0
+PEB Heap Flags=0
+Process32NextW=0
+NtOpenProcess=0
+NtQuerySystemInformation=1
+NtQueryInformationProcess=0
+NtSetInformationThread=0
+NtQueryObject=0
+NtClose=1
+FindWindow Apis=0
+EnumWindows=0
+BlockInput=0
+GetTickCount=0
+OutputDebugString=0
+GetStartupInfo=0

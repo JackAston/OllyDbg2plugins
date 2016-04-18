@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="Bookmark.dll"/>
+    <OBJFILES value="Bookmark.obj"/>
+    <RESFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\ollydbg.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value="bcb97axserver50.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL"/>
+    <MAINSOURCE value="Bookmark.bpf"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl;&quot;C:\Program Files\Multilizer\CBuilder5\&quot;"/>
+    <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Program Files\Multilizer\CBuilder5\&quot;"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-WD -O2 -H=bookmark.csm -Hc -w -Vx -Ve -C -X- -a1 -b -d -k -y -v -vi -tWD 
+      -tWM- -c -WU"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /m2 /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpd -GD -s -Gn -Gi -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+$(BCB)\Bin\bcb2kaxserver50.bpl=Borland C++Builder COM Server Components Sample Package
+C:\Programs\Multilizer\CBuilder5\ML42NDDE55.bpl=Multilizer Components
+C:\Programs\Multilizer\CBuilder5\ML42DBDE55.bpl=Multilizer Components: Data-Aware
+C:\WINDOWS\System32\ibsmp50.bpl=Borland C++ InterBase Alerter Component
+$(BCB)\Bin\dclstd50.bpl=Borland Standard Components
+$(BCB)\Bin\bcbsmp50.bpl=Borland C++ Sample Components
+$(BCB)\Bin\dclbde50.bpl=Borland BDE DB Components
+$(BCB)\Bin\dcldb50.bpl=Borland Database Components
+$(BCB)\Bin\dcltee50.bpl=TeeChart 5.0 Components
+$(BCB)\Bin\applet50.bpl=Borland Control Panel Applet Package
+$(BCB)\Bin\dcltqr50.bpl=TeeChart 5.0 for QuickReport Components Design Package
+$(BCB)\Bin\dclsmpedit50.bpl=Borland Editor Script Enhancements
+$(BCB)\Bin\dclib50.bpl=InterBase Data Access Components
+$(BCB)\Bin\dclnet50.bpl=Borland Internet Components
+$(BCB)\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+$(BCB)\Bin\DCLNMF50.bpl=NetMasters Fastnet Tools
+$(BCB)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
+$(BCB)\Bin\dclite50.bpl=Borland Integrated Translation Environment
+$(BCB)\Bin\mfcwizard.bpl=MFC Wizard
+$(BCB)\Bin\dcl31w50.bpl=Delphi 1.0 Compatibility Components
+$(BCB)\Bin\dclqrt50.bpl=QuickReport Components
+$(BCB)\Bin\bcbie50.bpl=Borland C++Builder Internet Explorer 5 Components Package
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Multilizer\CBuilder5\
+Item1=$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Multilizer\CBuilder5
+Item2=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=$(BCB)\lib\obj;$(BCB)\lib;C:\Program Files\Multilizer\CBuilder5\
+Item1=$(BCB)\lib\obj;$(BCB)\lib;C:\Program Files\Multilizer\CBuilder5
+Item2=$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+  </IDEOPTIONS>
+</PROJECT>

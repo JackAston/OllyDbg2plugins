@@ -1,0 +1,106 @@
+
+Information:
+
+  Hyde is a plugin for OllyDbg v2.xx, it's purpose is to hide ollyDbg from detection by the debugee.
+  This is done by patching memory and apis, and the options (or patch sets) can be saved to file, for easy reloading.
+
+  For example, with an ASProtect target you can set the patches that you need for ASProtect and save to a file
+   "ASProtect.SET".  This patch-set file can then be loaded whenever you need to debug ASProtect.
+
+
+
+Features:
+
+  o  All patched apis should work "normally" - They should only hide OllyDbg, but work for other windows/processes etc.
+  o  All patches/hooks are selectable from the menu for quick access, or from options dialog.
+  o  Optional Jmp variations (Push/Ret or Jmp[xxxxxxxx] or fake SysCall) for hooks.
+  o  If possible to hot-patch api then will do this, if syscall then uses fake syscall, else uses selected jmp style.
+  o  Load/Save patch sets.  Patch Sets are simply INI files, so can also be edited in notepad.
+  o  Remote allocated memory is seperated into code and data with appropriate access so should be no problems with DEP.
+  o  If you right-click a patch in Options dialog, the code window view will jump to that Api.
+
+
+
+Patches:
+
+  o  PEB.IsDebugged
+  o  PEB.NtGlobalFlag
+  o  PEB.HeapFlags
+  o  NtQueryInformationProcess
+  o  NtQuerySystemInformation
+  o  NtSetInformationThread
+  o  FindWindowA
+  o  FindWindowW
+  o  FindWindowExA
+  o  FindWindowExW
+  o  EnumWindows
+  o  EnumDesktopWindows
+  o  GetForegroundWindow
+  o  GetWindowThreadProcessId
+  o  Process32NextW
+  o  OutputDebugStringA
+  o  OutputDebugStringW
+  o  NtQueryObject
+  o  GetTickCount
+  o  NtOpenProcess
+  o  BlockInput
+  o  NtClose
+  o  GetStartupInfo
+  o  NtYieldExecution
+
+
+
+Future:
+
+  o  Custom patches/hooks.
+  o  Repair hooks if app unhooks the Apis.
+  o  Possibly change exception options for OllyDbg in patch-sets?
+  o  Maybe detection of packer targets?
+
+
+
+Past:
+
+ ->  Release [v1.01]
+  o  Fixed hang if OllyDbg closed while Options window was still open
+  o  Check/repair Api bytes more before patch
+  o  Copies bytes without breakpoint byte, if set on Api
+  o  Detects LCF-AT's OllySND 2.1 and disables NtQueryInformationProcess patch
+  o  Added NtYieldExecution check code (by Peter Ferrie) to CheckDebug.exe test program
+  o  Patching is now done at EP, or if target is DLL then DLL EP
+  o  Added NtYieldExecution hook
+  o  Added GetForegroundWindow hook
+  o  Added EnumDesktopWindows hook
+  o  Added GetWindowThreadProcessId hook
+  o  Patching is done at first TLS in EXE that has callbacks
+  o  If SysCall api detected, uses fake SysCall Jmp
+  o  If can hot-patch an Api then will do that instead of selected patch-style
+  o  Fixed weird bug where patches were applied twice sometimes
+
+ ->  Initial Release [v1.00]
+
+
+
+Beta-Tested by:
+
+  o  LCF-AT
+  o  mudlord
+  o  atom0s
+
+
+
+Tested on:
+
+  o  WinXP SP3
+  o  Win7 x32
+  o  Win7 x32 SP1
+  o  Win7 x64 SP1
+
+
+
+Contact:
+
+  Email - BobSoft@GMail.COM
+  Site  - http://bob.DropPages.Com/
+
+

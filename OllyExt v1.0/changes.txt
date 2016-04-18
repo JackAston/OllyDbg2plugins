@@ -1,0 +1,93 @@
+27.11.2012
+	- ProtectDRX
+	- HideDRX
+	- ZwGetContextThread DR6, DR7 register fix
+
+21.11.2012
+	- OllyDbg 2.01 Beta 2 (Update H) support
+
+18.11.2012
+	- Process32Next parent fix
+	- Process32First
+
+17.11.2012
+	- KdDebuggerNotPresent
+	- KdDebuggerEnabled
+	- NtSetDebugFilterState
+
+05.11.2012
+	- ZwGetContextThread
+	- NtSetContextThread
+
+23.10.2012
+	- Windows XP support
+
+22.10.2012
+	- PEB search fix
+
+21.10.2012
+	- timeGetTime
+	- QueryPerformanceCounter
+
+20.10.2012
+	- GetTickCount
+
+08.10.2012
+	- user32.dll unable to get remote module information error fix
+
+05.10.2012
+	- Recompiled for the newly published OllyDbg 2.01 Beta 2 (Update G)
+
+01.10.2012
+	- Kill Anti-Attach ( dll integrity check )
+	- NtOpenProcess multiple csrss.exe fix
+	- ParentProcess
+
+30.09.2012
+	- Hook framework rewritten
+	- Remote string transfer fixed
+
+27.09.2012
+	- Process32Next
+
+26.09.2012
+	- FindWindowA
+	- FindWindowExA
+	- FindWindowW
+	- FindWindowExW
+	- NtOpenProcess
+	- Lot of internal changes in order to make everything consistent
+
+24.09.2012
+	- NtQueryObject
+
+23.09.2012
+	- TerminateProcess
+	- NtSetInformationThread
+
+22.09.2012
+	- ProcessDebugFlags
+	- ProcessDebugObjectHandle
+
+21.09.2012
+	- SeDebugPrivilege
+	- BlockInput
+
+20.09.2012
+	- CloseHandle
+
+19.09.2012
+	- OutputDebugString
+
+18.09.2012
+	- CheckRemoteDebuggerPresent
+
+15.09.2012
+	- IsDebuggerPresent
+	- NtGlobalFlag
+	- HeapFlag
+	- ForceFlag
+	- Caption change
+
+14.09.2012
+	- Initial version

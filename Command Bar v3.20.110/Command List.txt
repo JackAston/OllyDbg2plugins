@@ -1,0 +1,88 @@
+t_command cmdlist[] = {
+  // "Assignment" command, must be first in the list.
+  { _T("SET"),   _T("LV"), 0,                 Setcmnd, _T("Writes value of expression to reg|mem")     },   // Assign to lvalue
+  // Disassembler commands.
+  { _T("AT"),    _T("A"),  0,                 Dasmcmd, _T("Disassemble at address")                    },   // Disassemble at address
+  { _T("FOLLOW"),_T("A"),  0,                 Dasmcmd, _T("Disassemble at address")                    },   // Ditto
+  { _T("ORIG"),  _T(""),   0,                 Dorigin, _T("Disassemble at EIP")                        },   // Disassemble at EIP
+  { _T("*"),     _T(""),   0,                 Dorigin, _T("Disassemble at EIP")                        },   // Ditto
+  // Dump and stack commands.
+  { _T("D"),     _T("A"),  0,                 Dumpcmd, _T("Dump at address")                           },   // Dump at address
+  { _T("DUMP"),  _T("A"),  0,                 Dumpcmd, _T("Dump at address")                           },   // Dump at address
+  { _T("DA"),    _T("a"),  DU_DISASM|0x0011,  Dumpcmd, _T("Dump as disassembly")                       },   // Dump as disassembly
+  { _T("DB"),    _T("a"),  DU_HEXTEXT|0x0101, Dumpcmd, _T("Dump in hex byte format")                   },   // Dump in hex byte format
+  { _T("DC"),    _T("a"),  DU_TEXT|0x0401,    Dumpcmd, _T("Dump in ASCII format")                      },   // Dump in ASCII format
+  { _T("DD"),    _T("a"),  DU_ADDR|0x0014,    Dumpcmd, _T("Dump in stack format")                      },   // Dump in stack format
+  { _T("DU"),    _T("a"),  DU_UNICODE|0x0402, Dumpcmd, _T("Dump in UNICODE format")                    },   // Dump in UNICODE format
+  { _T("DW"),    _T("a"),  DU_IHEX|0x0082,    Dumpcmd, _T("Dump in hex word format")                   },   // Dump in hex word format
+  { _T("STK"),   _T("A"),  0,                 Stakcmd, _T("Go to address in stack")                    },   // Go to address in stack
+  // Assembling commands.
+  { _T("A"),     _T("AS"), 0,                 Assembl, _T("Assemble at address")                       },   // Assemble at address
+  // Comments and labels.
+  { _T("L"),     _T("AS"), NM_LABEL,          Commlab, _T("Label at address")                          },   // Label at address
+  { _T(":"),     _T("AS"), NM_LABEL,          Commlab, _T("Label at address")                          },   // Ditto
+  { _T("C"),     _T("AS"), NM_COMMENT,        Commlab, _T("Comment at address")                        },   // Comment at address
+  // Breakpoint commands.
+  { _T("BP"),    _T("AS"), 0,                 Breakpt, _T("Break with condition")                      },   // Break with condition
+  { _T("BPX"),   _T("S"),  0,                 Brkname, _T("Break on all calls")                        },   // Break on all calls
+  { _T("BPD"),   _T("S"),  1,                 Brkname, _T("Delete break on all calls")                 },   // Delete break on all calls
+  { _T("BC"),    _T("A"),  0,                 Delbkpt, _T("Delete breakpoint")                         },   // Delete breakpoint
+  { _T("ME"),    _T("Av"), MEMBP_EXETURE,     Membkpt, _T("Memory breakpt on execute")                 },   // Memory breakpt on execute
+  { _T("MR"),    _T("Av"), MEMBP_READ,        Membkpt, _T("Memory breakpt on access")                  },   // Memory breakpt on access
+  { _T("MW"),    _T("Av"), MEMBP_WRITE,       Membkpt, _T("Memory breakpt on write")                   },   // Memory breakpt on write
+  { _T("MERW"),  _T("Av"), MEMBP_ERWALL,      Membkpt, _T("Memory breakpt on E.R.W")                   },   // Memory breakpt on E.R.W
+  { _T("MD"),    _T("Av"), 0,                 Membkpt, _T("Remove memory breakpoint")                  },   // Remove memory breakpoint
+  { _T("HR"),    _T("A"),  HB_ACCESS,         Hwbreak, _T("HW break on access")                        },   // HW break on access
+  { _T("HW"),    _T("A"),  HB_WRITE,          Hwbreak, _T("HW break on write")                         },   // HW break on write
+  { _T("HE"),    _T("A"),  HB_CODE,           Hwbreak, _T("HW break on execution")                     },   // HW break on execution
+  { _T("HD"),    _T("a"),  HB_FREE,           Hwbreak, _T("Remove HW breakpoint")                      },   // Remove HW breakpoint
+  // Stepping and tracing commands.
+  //{ _T("STOP"),  _T(""),   VK_F12,            Keystrk, _T("Pause execution")                           },   // Pause execution
+  //{ _T("PAUSE"), _T(""),   VK_F12,            Keystrk, _T("Pause execution")                           },   // Ditto
+  //{ _T("RUN"),   _T(""),   0,                 Runprog, _T("Run program")                               },   // Run program
+  //{ _T("G"),     _T("a"),  0,                 Runprog, _T("Run till address")                          },   // Run till address
+  //{ _T("GE"),    _T("a"),  1,                 Runprog, _T("Run and pass exception")                    },   // Run and pass exception
+  //{ _T("S"),     _T(""),   0,                 Stepper, _T("Step into")                                 },   // Step into
+  //{ _T("SI"),    _T(""),   0,                 Stepper, _T("Step into")                                 },   // Ditto
+  //{ _T("SO"),    _T(""),   1,                 Stepper, _T("Step over")                                 },   // Step over
+  //{ _T("T"),     _T("a"),  0,                 Tracing, _T("Trace in till address")                     },   // Trace in till address
+  //{ _T("TI"),    _T("a"),  0,                 Tracing, _T("Trace in till address")                     },   // Ditto
+  //{ _T("TO"),    _T("a"),  1,                 Tracing, _T("Trace over till address")                   },   // Trace over till address
+  //{ _T("TC"),    _T("S"),  0,                 Tracing, _T("Trace in till condition")                   },   // Trace in till condition
+  //{ _T("TOC"),   _T("S"),  1,                 Tracing, _T("Trace over till condition")                 },   // Trace over till condition
+  //{ _T("TR"),    _T(""),   VK_F9,             Ctrlkey, _T("Till return")                               },   // Till return
+  //{ _T("TU"),    _T(""),   VK_F9,             Altkeyd, _T("Till user code")                            },   // Till user code
+  // Table window commands.
+  //{ _T("LOG"),   _T(""),   _T('L'),               Altkeyd, _T("View Log window")                           },   // View Log window
+  //{ _T("MOD"),   _T(""),   _T('E'),               Altkeyd, _T("View Modules window")                       },   // View Modules window
+  //{ _T("MEM"),   _T(""),   _T('M'),               Altkeyd, _T("View Memory window")                        },   // View Memory window
+  //{ _T("CPU"),   _T(""),   _T('C'),               Altkeyd, _T("View CPU window")                           },   // View CPU window
+  //{ _T("CS"),    _T(""),   _T('K'),               Altkeyd, _T("View Call Stack")                           },   // View Call Stack
+  //{ _T("BRK"),   _T(""),   _T('B'),               Altkeyd, _T("View Breakpoints window")                   },   // View Breakpoints window
+  //{ _T("OPT"),   _T(""),   _T('O'),               Altkeyd, _T("Open Options")                              },   // Open Options
+  // Application commands.
+  //{ _T("EXIT"),  _T(""),   _T('X'),               Altkeyd, _T("Quit OllyDbg")                              },   // Quit OllyDbg
+  //{ _T("QUIT"),  _T(""),   _T('X'),               Altkeyd, _T("Quit OllyDbg")                              },   // Ditto
+  // Miscellaneous commands.
+  //{ _T("OPEN"),  _T("S"),  0,                 Openexe, _T("Open executable file")                      },   // Open executable file
+  //{ _T("CLOSE"), _T(""),   VK_F2,             Altkeyd, _T("Close executable")                          },   // Close executable
+  //{ _T("RST"),   _T(""),   VK_F2,             Ctrlkey, _T("Restart current program")                   },   // Restart current program
+  //{ _T("HELP"),  _T("S"),  0,                 Heeeelp, _T("Help on API function")                      },   // Help on API function
+  //{ _T("H"),     _T("S"),  0,                 Heeeelp, _T("Help on API function")                      },   // Ditto
+  // My commands.
+  { _T("ASM"),   _T("S"),  0,                 LineAsm, _T("Assemble (if command needs it's own addres, \"ASM COMMAND\;ADDRESS\")")},   // Assemble
+  { _T("DASM"),  _T("S"),  0,                 LineDsm, _T("Disassemble immediate opcode")              },   // Dump at address
+  //{ _T("FR"),    _T(""),   _T('R'),               CtlDasm, _T("Find reference to selected command/address")},   // Find Reference to selected command/address
+  //{ _T("AC"),    _T(""),   _T('A'),               CtlDasm, _T("Analyse code")                              },   // Analyse Code
+  //{ _T("SN"),    _T(""),   _T('N'),               CtlDasm, _T("Search for Name(label) in current module")  },   // Search for Name(label) in current module
+  //{ _T("SOB"),   _T(""),   _T('O'),               CtlDasm, _T("Scan object files")                         },   // Scan OBJect files
+  // Macro command
+  { _T("MAC"),   _T("S"),  0,                 LoadMac, _T("Execute Macro Command")                     },   // Execute Macro Command
+  { _T("OSC"),   _T("S"),  0,                 GoScrpt, _T("Execute OllyScript script")                 },   // Execute Macro Command
+  // Calculator and watch commands.
+  { _T("CALC"),  _T("V"),  0,                 Express, _T("Estimate expression")                       },   // Estimate expression
+  { _T("?"),     _T("V"),  0,                 Express, _T("Estimate expression")                       },   // Ditto
+  //{ _T("WATCH"), _T("S"),  0,                 Addwtch, _T("Add watch expression")                      },   // Add watch expression
+  //{ _T("W"),     _T("S"),  0,                 Addwtch, _T("Add watch expression")                      },   // Ditto
+  { _T(""),      _T("V"),  0,                 Express, _T("Estimate expression")                       }    // Ditto
+};
